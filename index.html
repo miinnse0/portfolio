@@ -119,8 +119,46 @@ let page='Home',item=1;
 const saved=window.openai?.widgetState?.modelContent;
 const pages=['Home','About','Spatial Design','Photography','Research'];
 if(saved && [...pages,'project','series'].includes(saved.page)){page=saved.page;item=Math.max(1,Math.min(saved.page==='series'?2:5,Number(saved.item)||1));}
+// Keep section and project navigation in the browser history.
+const routeNames={'Home':'home','Spatial Design':'spatial','Photography':'photography','Research':'research','About':'about','project':'project','series':'series'};
+function readRoute(){
+ const parts=location.hash.slice(1).split('/');
+ const name=Object.keys(routeNames).find(key=>routeNames[key]===parts[0]);
+ if(!name)return null;
+ return {page:name,item:Math.max(1,Math.min(name==='series'?2:5,Number(parts[1])||1))};
+}
+function routeKey(){return routeNames[page]+((page==='project'||page==='series')?'/'+item:'');}
+const initialRoute=readRoute();
+if(initialRoute){page=initialRoute.page;item=initialRoute.item;}
+let lastRoute=null,restoringHistory=false;
+function recordNavigation(){
+ const key=routeKey();
+ if(restoringHistory){lastRoute=key;return;}
+ if(key===lastRoute)return;
+ const state={portfolio:true,page,item,scrollY:0};
+ if(lastRoute===null)history.replaceState(state,'','#'+key);
+ else history.pushState(state,'','#'+key);
+ lastRoute=key;
+ window.scrollTo({top:0,left:0,behavior:'instant'});
+}
+history.scrollRestoration='manual';
+window.addEventListener('scroll',()=>{
+ if(!restoringHistory&&history.state?.portfolio)
+  history.replaceState({...history.state,scrollY:window.scrollY},'');
+},{passive:true});
+window.addEventListener('popstate',()=>{
+ const route=readRoute()||{page:'Home',item:1};
+ const top=history.state?.scrollY||0;
+ restoringHistory=true;
+ if(lightbox.open)closePhoto();
+ page=route.page;item=route.item;
+ render();
+ window.scrollTo({top,left:0,behavior:'instant'});
+ restoringHistory=false;
+});
 const box=(label,extra='')=>`<div class="placeholder ${extra}">${label}</div>`;
 function render(){
+recordNavigation();
 clearTimeout(typingTimer);
 researchPointer=null;
 root.style.setProperty('--gutter',settings.spacing+'px');

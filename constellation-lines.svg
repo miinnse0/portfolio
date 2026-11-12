@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1536 1024" width="1536" height="1024"><g id="Orbital-curves" fill="none" stroke="#dedede" stroke-width="0.7">
+<path id="Curve-Spatial-to-upper" d="M175 368 C236 238 339 149 497 110" />
+<path id="Curve-Spatial-to-research" d="M175 368 C186 507 298 671 443 749" />
+<path id="Curve-Research-to-center" d="M443 749 C468 646 529 562 618 495" />
+<path id="Curve-Center-to-photography" d="M852 386 C969 326 1094 306 1123 220" />
+<path id="Curve-Photography-to-right-orbit" d="M1123 220 C1252 268 1398 423 1399 549 C1401 634 1331 703 1261 756" />
+<path id="Curve-Research-to-about" d="M547 558 C739 592 921 694 1063 843" />
+<path id="Curve-About-to-fashion" d="M1063 843 L1082 800 Q1184 817 1261 756" />
+<path id="Curve-Upper-vertical" d="M1022 69 Q1009 157 1009 242" />
+<path id="Curve-Upper-branch" d="M1022 69 L1047 124" />
+<path id="Curve-Small-branch-left" d="M263 319 L335 311 L388 313" />
+<path id="Curve-Small-branch-center" d="M478 321 L528 272" />
+<path id="Curve-Rail-to-node" d="M642 257 L668 334" />
+<path id="Curve-Rail-small-link" d="M564 263 L590 260" />
+<path id="Curve-Wall-to-detail" d="M365 474 L283 514" />
+<path id="Curve-Research-to-portrait" d="M443 749 L429 813 L374 840" />
+</g><g id="Constellation-dots">
+<circle id="Dot-001" cx="680.5" cy="86.0" r="2.0" fill="rgb(186,186,186)" />
+<circle id="Dot-002" cx="1116.0" cy="116.0" r="1.75" fill="rgb(92,92,92)" />
+<circle id="Dot-003" cx="799.5" cy="118.5" r="2.25" fill="rgb(1,1,1)" />
+<circle id="Dot-004" cx="1257.0" cy="119.0" r="1.75" fill="rgb(194,194,194)" />
+<circle id="Dot-005" cx="1046.5" cy="124.0" r="3.0" fill="rgb(5,5,5)" />
+<circle id="Dot-007" cx="1097.0" cy="178.0" r="1.75" fill="rgb(14,14,14)" />
+<circle id="Dot-008" cx="1054.5" cy="208.5" r="1.25" fill="rgb(197,197,197)" />
+<circle id="Dot-009" cx="173.0" cy="211.0" r="1.75" fill="rgb(94,94,94)" />
+<circle id="Dot-010" cx="1437.0" cy="232.0" r="2.75" fill="rgb(0,0,0)" />
+<circle id="Dot-012" cx="564.0" cy="262.5" r="1.5" fill="rgb(183,183,183)" />
+<circle id="Dot-013" cx="528.0" cy="272.0" r="1.75" fill="rgb(175,175,175)" />
+<circle id="Dot-014" cx="1402.5" cy="287.5" r="2.25" fill="rgb(1,1,1)" />
+<circle id="Dot-015" cx="134.5" cy="301.0" r="2.5" fill="rgb(0,0,0)" />
+<circle id="Dot-017" cx="335.0" cy="311.0" r="1.75" fill="rgb(187,187,187)" />
+<circle id="Dot-018" cx="388.0" cy="313.0" r="2.75" fill="rgb(1,1,1)" />
+<circle id="Dot-019" cx="667.5" cy="333.5" r="2.25" fill="rgb(83,83,83)" />
+<circle id="Dot-020" cx="1032.0" cy="350.5" r="2.5" fill="rgb(1,1,1)" />
+<circle id="Dot-022" cx="1188.0" cy="401.0" r="2.75" fill="rgb(2,2,2)" />
+<circle id="Dot-023" cx="1377.0" cy="419.0" r="0.75" fill="rgb(195,195,195)" />
+<circle id="Dot-024" cx="1150.0" cy="432.0" r="1.75" fill="rgb(138,138,138)" />
+<circle id="Dot-025" cx="134.5" cy="441.5" r="2.25" fill="rgb(178,178,178)" />
+<circle id="Dot-027" cx="473.0" cy="486.5" r="2.5" fill="rgb(1,1,1)" />
+<circle id="Dot-028" cx="1408.0" cy="500.0" r="1.75" fill="rgb(59,59,59)" />
+<circle id="Dot-029" cx="282.5" cy="513.5" r="1.25" fill="rgb(193,193,193)" />
+<circle id="Dot-030" cx="1455.5" cy="531.5" r="2.25" fill="rgb(181,181,181)" />
+<circle id="Dot-032" cx="621.5" cy="574.5" r="3.25" fill="rgb(0,0,0)" />
+<circle id="Dot-033" cx="1253.5" cy="575.5" r="2.25" fill="rgb(1,1,1)" />
+<circle id="Dot-034" cx="758.0" cy="587.0" r="1.75" fill="rgb(114,114,114)" />
+<circle id="Dot-035" cx="1165.0" cy="612.5" r="3.0" fill="rgb(0,0,0)" />
+<circle id="Dot-037" cx="303.5" cy="633.5" r="3.25" fill="rgb(1,1,1)" />
+<circle id="Dot-038" cx="895.0" cy="635.5" r="2.0" fill="rgb(3,3,3)" />
+<circle id="Dot-039" cx="714.0" cy="656.0" r="1.75" fill="rgb(0,0,0)" />
+<circle id="Dot-040" cx="999.0" cy="676.0" r="1.75" fill="rgb(1,1,1)" />
+<circle id="Dot-041" cx="788.0" cy="680.0" r="1.75" fill="rgb(193,193,193)" />
+<circle id="Dot-043" cx="46.0" cy="699.0" r="1.75" fill="rgb(2,2,2)" />
+<circle id="Dot-044" cx="1344.5" cy="704.0" r="1.0" fill="rgb(153,153,153)" />
+<circle id="Dot-045" cx="607.0" cy="706.0" r="1.75" fill="rgb(5,5,5)" />
+<circle id="Dot-046" cx="1405.0" cy="725.0" r="1.75" fill="rgb(190,190,190)" />
+<circle id="Dot-048" cx="1462.5" cy="732.0" r="2.5" fill="rgb(1,1,1)" />
+<circle id="Dot-049" cx="287.0" cy="784.0" r="1.75" fill="rgb(10,10,10)" />
+<circle id="Dot-050" cx="768.5" cy="788.0" r="2.5" fill="rgb(1,1,1)" />
+<circle id="Dot-051" cx="239.5" cy="790.5" r="2.25" fill="rgb(3,3,3)" />
+<circle id="Dot-053" cx="493.0" cy="793.0" r="1.75" fill="rgb(187,187,187)" />
+<circle id="Dot-054" cx="132.0" cy="796.5" r="2.0" fill="rgb(1,1,1)" />
+<circle id="Dot-055" cx="556.0" cy="797.0" r="1.75" fill="rgb(186,186,186)" />
+<circle id="Dot-056" cx="609.5" cy="797.5" r="2.25" fill="rgb(28,28,28)" />
+<circle id="Dot-058" cx="1165.0" cy="807.5" r="3.0" fill="rgb(0,0,0)" />
+<circle id="Dot-059" cx="102.0" cy="832.0" r="1.75" fill="rgb(1,1,1)" />
+<circle id="Dot-060" cx="308.0" cy="836.0" r="1.75" fill="rgb(206,206,206)" />
+<circle id="Dot-061" cx="906.0" cy="844.0" r="1.75" fill="rgb(210,210,210)" />
+<circle id="Dot-063" cx="232.0" cy="862.5" r="1.5" fill="rgb(198,198,198)" />
+<circle id="Dot-064" cx="1351.5" cy="873.5" r="2.25" fill="rgb(2,2,2)" />
+<circle id="Dot-065" cx="1153.0" cy="888.0" r="2.75" fill="rgb(1,1,1)" />
+<circle id="Dot-066" cx="1007.5" cy="890.0" r="2.0" fill="rgb(200,200,200)" />
+<circle id="Dot-068" cx="680.5" cy="916.5" r="2.25" fill="rgb(2,2,2)" />
+<circle id="Dot-069" cx="729.5" cy="25.5" r="1.8" fill="rgb(16,16,16)" />
+<circle id="Dot-070" cx="489" cy="41" r="2" fill="rgb(190,190,190)" />
+<circle id="Dot-071" cx="393.5" cy="951" r="2.2" fill="rgb(16,16,16)" />
+</g><g id="Node-Center"><circle id="Halo-Center" cx="580" cy="457" r="32" fill="#f6f6f6" /><circle id="Core-Center" cx="580" cy="457" r="3.5" fill="#101010" /></g>
+<g id="Node-Upper"><circle id="Halo-Upper" cx="1022" cy="69" r="26" fill="#f6f6f6" /><circle id="Core-Upper" cx="1022" cy="69" r="3.5" fill="#101010" /></g>
+</svg>

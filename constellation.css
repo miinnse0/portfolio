@@ -1,0 +1,131 @@
+/* Landing preview, scoped so the existing portfolio pages keep their styles. */
+#minseo-plan.constellation-home {background:#fefefe;min-height:100dvh;padding-top:0!important}
+#minseo-plan.constellation-home main {padding:0!important}
+#minseo-plan .constellation {position:relative;width:100%;height:100dvh;overflow:hidden;touch-action:none;cursor:grab;isolation:isolate}
+#minseo-plan .constellation.is-dragging {cursor:grabbing}
+#minseo-plan .constellation-stage {position:absolute;width:1536px;height:1024px;transform-origin:0 0;will-change:transform}
+#minseo-plan .constellation-lines {position:absolute;inset:0;width:1536px;height:1024px;pointer-events:none}
+#minseo-plan .float-photo {position:absolute;display:block;padding:0;border:0;background:transparent;border-radius:2px;z-index:2;transform:rotate(var(--rotation));transition:transform .35s,filter .35s,opacity .35s;filter:blur(var(--blur));opacity:var(--opacity);box-shadow:0 2px 9px #00000018;line-height:0}
+#minseo-plan .float-photo img {width:100%;height:100%;object-fit:cover;border-radius:2px;display:block;pointer-events:none}
+#minseo-plan .float-photo:hover,#minseo-plan .float-photo:focus-visible {z-index:6;transform:rotate(0deg) scale(1.1);filter:none;opacity:1;outline:none}
+#minseo-plan .float-photo.featured {filter:none;opacity:1;z-index:4;box-shadow:0 3px 12px #00000016}
+#minseo-plan .category-node {position:absolute;display:flex;align-items:center;gap:9px;height:54px;padding:0;border:0;background:transparent;z-index:5;color:#101010;font:10.5px Arial,sans-serif;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap}
+#minseo-plan .node-disc {width:52px;height:52px;border-radius:50%;position:relative;background:transparent;display:grid;place-items:center;flex-shrink:0;transition:transform .25s}
+#minseo-plan .node-disc::before {content:'';position:absolute;inset:-8px;border-radius:50%;background:radial-gradient(circle,var(--node-color) 0%,color-mix(in srgb,var(--node-color) 65%,transparent) 30%,transparent 72%);filter:blur(8px);opacity:.8;pointer-events:none}
+#minseo-plan .node-disc::after {content:'';position:relative;width:7px;height:7px;border-radius:50%;background:#101010}
+#minseo-plan .category-node:hover .node-disc,#minseo-plan .category-node:focus-visible .node-disc {transform:scale(1.14)}
+#minseo-plan .constellation-help {position:absolute;bottom:42px;left:40px;color:#777;font:8.5px 'IBM Plex Mono',monospace;letter-spacing:0;text-transform:none;pointer-events:none}
+#minseo-plan .constellation-controls {position:absolute;right:40px;bottom:30px;z-index:7;display:flex;align-items:center;gap:15px;color:#777;font:8.5px 'IBM Plex Mono',monospace;letter-spacing:0;text-transform:none}
+#minseo-plan .constellation-controls button {background:#fefefee8;border:0;padding:7px 4px;font:16px 'IBM Plex Mono',monospace;text-transform:none;color:#777;min-width:24px}
+#minseo-plan .constellation-controls button.reset {font-size:9px;letter-spacing:0}
+#minseo-plan .constellation-controls .zoom-copy {margin-right:10px}
+#minseo-plan .constellation :focus-visible {outline:2px solid #47579d;outline-offset:5px}
+@media(max-width:650px){
+ #minseo-plan .constellation-help {bottom:28px;left:20px;font-size:8px}
+ #minseo-plan .constellation-controls {right:20px;bottom:18px;gap:8px}
+ #minseo-plan .zoom-copy {display:none}
+}
+@media(prefers-reduced-motion:reduce){#minseo-plan .float-photo,#minseo-plan .node-disc{transition:none}}
+/* Separate entrance, ambient translation, and hover transforms. */
+#minseo-plan .photo-orbit {position:absolute;z-index:2;opacity:0;transform:translate(var(--gather-x),var(--gather-y)) scale(.18);}
+#minseo-plan .photo-orbit:has(.featured) {z-index:4}
+#minseo-plan .photo-orbit:hover,#minseo-plan .photo-orbit:focus-within {z-index:6}
+#minseo-plan .photo-orbit .float-photo {inset:-12.5%;width:125%;height:125%;animation:gentle-drift var(--float-duration) ease-in-out var(--float-delay) infinite;animation-play-state:paused;}
+#minseo-plan .constellation:not(.is-ready) .category-node,#minseo-plan .constellation:not(.is-ready) .constellation-lines {opacity:0}
+#minseo-plan .is-ready .photo-orbit {opacity:1;transform:none}
+#minseo-plan .is-ready .photo-orbit .float-photo {animation-play-state:running}
+#minseo-plan .photo-orbit:hover .float-photo,#minseo-plan .photo-orbit:focus-within .float-photo {animation-play-state:paused}
+#minseo-plan .constellation-lines {transform-origin:768px 512px}
+@keyframes gentle-drift {0%,100%{translate:0 0}25%{translate:var(--float-x) calc(var(--float-y) * -.55)}50%{translate:calc(var(--float-x) * -.35) calc(var(--float-y) * -1)}75%{translate:calc(var(--float-x) * -.8) calc(var(--float-y) * -.25)}}
+@media(prefers-reduced-motion:reduce){#minseo-plan .photo-orbit .float-photo {animation:none!important}#minseo-plan .photo-orbit {opacity:1;transform:none}#minseo-plan .constellation .category-node,#minseo-plan .constellation .constellation-lines{opacity:1}}
+
+/* Landing categories are represented by soft color glows, without visible labels. */
+
+#minseo-plan .constellation:not(.can-pan) {cursor:default}
+
+/* Photo overlay leaves the map and camera mounted underneath. */
+.constellation-lightbox {position:fixed;inset:0;margin:0;padding:40px;border:0;width:100vw;max-width:none;height:100dvh;max-height:none;box-sizing:border-box;background:transparent;overflow:hidden;cursor:zoom-out}
+.constellation-lightbox[open] {display:grid;place-items:center}
+.constellation-lightbox::backdrop {background:rgba(255,255,255,0);backdrop-filter:blur(0px) saturate(100%);-webkit-backdrop-filter:blur(0px) saturate(100%);transition:background .28s ease,backdrop-filter .42s ease,-webkit-backdrop-filter .42s ease}
+.constellation-lightbox.is-visible::backdrop {background:rgba(245,247,250,.24);backdrop-filter:blur(12px) saturate(115%);-webkit-backdrop-filter:blur(12px) saturate(115%)}
+.constellation-lightbox>img {display:block;max-width:calc(100vw - 100px);max-height:calc(100dvh - 100px);width:auto;height:auto;object-fit:contain;cursor:default;box-shadow:0 22px 70px rgba(20,25,35,.16);opacity:0;transform:translateY(14px) scale(.94);transition:opacity .28s ease,transform .42s cubic-bezier(.22,.7,.2,1)}
+.constellation-lightbox>button {position:absolute;top:16px;right:24px;border:0;background:transparent;color:#666;font:28px Arial,sans-serif;padding:8px;cursor:pointer}
+#minseo-plan .image-open .photo-orbit .float-photo {animation-play-state:paused}
+@media(max-width:650px){.constellation-lightbox {padding:20px}.constellation-lightbox>img{max-width:calc(100vw - 40px);max-height:calc(100dvh - 100px)}}
+
+.constellation-lightbox.is-visible>img {opacity:1;transform:translateY(0) scale(1)}
+.constellation-lightbox>button {opacity:0;transition:opacity .25s ease}
+.constellation-lightbox.is-visible>button {opacity:1}
+@media(prefers-reduced-motion:reduce){.constellation-lightbox>img,.constellation-lightbox>button,.constellation-lightbox::backdrop{transition:none}.constellation-lightbox>img{transform:none}}
+
+/* Category captions appear above the glow on hover or keyboard focus. */
+#minseo-plan .category-node .node-label {position:absolute;bottom:calc(100% + 12px);left:26px;transform:translate(-50%,6px);opacity:0;pointer-events:none;white-space:nowrap;font:10px/1.4 Arial,Helvetica,sans-serif;letter-spacing:1.5px;color:#333;transition:opacity .22s ease,transform .3s cubic-bezier(.22,.7,.2,1)}
+#minseo-plan .category-node:hover .node-label,#minseo-plan .category-node:focus-visible .node-label {opacity:1;transform:translate(-50%,0)}
+#minseo-plan .category-node:hover .node-disc,#minseo-plan .category-node:focus-visible .node-disc {transform:scale(2)}
+@media(prefers-reduced-motion:reduce){#minseo-plan .category-node .node-label{transition:none}}
+
+#minseo-plan .category-connections {position:absolute;inset:0;width:1536px;height:1024px;pointer-events:none;z-index:1;overflow:visible}
+#minseo-plan .category-connections line {stroke-width:1;stroke-opacity:.45}
+#minseo-plan .category-connections circle {opacity:.75}
+#minseo-plan .constellation-lines {transition:opacity .4s ease}
+#minseo-plan .category-selected .constellation-lines {opacity:.25}
+#minseo-plan .float-photo.category-match {filter:none;opacity:1;box-shadow:0 4px 18px #00000020}
+#minseo-plan .float-photo.category-muted {filter:blur(5px);opacity:.22}
+#minseo-plan .category-node[aria-pressed="true"] .node-disc {transform:scale(2)}
+#minseo-plan .category-node[aria-pressed="true"] .node-label {opacity:1;transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){#minseo-plan .constellation-lines{transition:none}}
+
+.constellation-lightbox>[hidden]{display:none}
+.constellation-lightbox>.about-page{box-sizing:border-box;width:min(520px,100%);max-height:calc(100dvh - 100px);overflow:auto;padding:clamp(24px,5vw,48px);color:#242424;background:rgba(255,255,255,.88);box-shadow:0 18px 64px #17203319;border-radius:4px;cursor:auto;font:14px/1.6 'IBM Plex Mono',monospace;opacity:0;transform:translateY(14px) scale(.94);transition:opacity .28s ease,transform .42s cubic-bezier(.22,.7,.2,1)}
+.constellation-lightbox.is-visible>.about-page{opacity:1;transform:none}
+.constellation-lightbox .about-heading{font:inherit;margin:0 0 24px}
+.constellation-lightbox .about-experience{list-style:none;padding:0;margin:0}
+.constellation-lightbox .about-experience li+li{margin-top:7px}
+.constellation-lightbox .about-statement{margin:24px 0 0}
+@media(prefers-reduced-motion:reduce){.constellation-lightbox>.about-page{transition:none;transform:none}}
+
+#minseo-plan .sphere-facet {position:absolute;inset:0;pointer-events:none}
+#minseo-plan .photo-orbit {pointer-events:none}
+#minseo-plan .float-photo {pointer-events:auto;cursor:zoom-in}
+#minseo-plan .category-node {z-index:7;cursor:pointer}
+#minseo-plan .sphere-grid {position:absolute;inset:0;width:100%;height:100%;color:#eaeaea;pointer-events:none;mask-image:radial-gradient(ellipse,#000 36%,transparent 78%)}
+
+/* Breathe the colored halo while keeping the button and center dot steady. */
+#minseo-plan .is-ready .category-node .node-disc::before {
+ animation:category-halo-pulse 2.5s ease-in-out 3s infinite;
+}
+@keyframes category-halo-pulse {
+ 0%,100% {transform:scale(1)}
+ 50% {transform:scale(1.65)}
+}
+#minseo-plan .category-node:hover .node-disc::before,
+#minseo-plan .category-node:focus-visible .node-disc::before,
+#minseo-plan .category-node[aria-pressed="true"] .node-disc::before,
+#minseo-plan .image-open .category-node .node-disc::before {animation-play-state:paused}
+@media(prefers-reduced-motion:reduce){
+ #minseo-plan .is-ready .category-node .node-disc::before {animation:none}
+}
+
+/* Animate the resting frame separately from the image's floating motion. */
+#minseo-plan .photo-orbit {
+ translate:0 0;scale:1;
+ transition:translate .85s cubic-bezier(.22,.7,.2,1),scale .85s cubic-bezier(.22,.7,.2,1);
+}
+#minseo-plan .photo-orbit.category-expanded {
+ translate:var(--category-x) var(--category-y);scale:var(--category-scale,1.5);z-index:5;
+}
+@media(prefers-reduced-motion:reduce){#minseo-plan .photo-orbit{transition:none}}
+
+/* Portrait composition and touch targets apply only to the mobile map. */
+#minseo-plan .mobile-map .constellation-lines,
+#minseo-plan .mobile-map .category-connections {width:100%;height:100%;object-fit:fill;transform-origin:center}
+#minseo-plan .mobile-map .category-node {width:104px;height:104px;padding:26px;box-sizing:border-box;translate:-26px -26px}
+#minseo-plan .mobile-map .category-node .node-label {left:52px;bottom:100%;font-size:22px;letter-spacing:.5px;opacity:1;transform:translate(-50%,0)}
+@media(max-width:650px){
+ #minseo-plan .constellation-controls {right:16px;bottom:max(16px,env(safe-area-inset-bottom));gap:4px}
+ #minseo-plan .constellation-controls button {min-width:44px;min-height:44px;padding:10px}
+ #minseo-plan .constellation-help {bottom:max(32px,calc(env(safe-area-inset-bottom) + 16px));left:16px}
+ .constellation-lightbox>button {right:12px;top:max(12px,env(safe-area-inset-top));min-width:44px;min-height:44px}
+}
+
+@media(hover:none){#minseo-plan .mobile-map .float-photo:hover {transform:rotate(var(--rotation))}}

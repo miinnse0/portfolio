@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Minseo Kim — Portfolio</title>
 <meta name="description" content="Experiential design for Jiyong Kim Pop-Up at Komune, New York, 2026. Portfolio of Minseo Kim.">
-<link rel="preload" as="image" href="assets/komune-3.webp" fetchpriority="high">
+
 <style>@font-face{font-family:"IBM Plex Serif";font-style:normal;font-weight:400;font-display:swap;src:url("assets/ibm-plex-serif-regular.ttf") format("truetype")}html{color-scheme:light}body{margin:0}button{cursor:pointer}#minseo-plan .project-intro h1{font-family:'IBM Plex Serif',serif;font-weight:400;letter-spacing:-.02em}
 #minseo-plan .photography-gallery{display:flex;flex-direction:column;gap:2px}#minseo-plan .photography-row{display:flex;gap:2px;align-items:flex-start}#minseo-plan .photography-row img{display:block;flex-basis:0;min-width:0;width:0;height:auto}@media(max-width:650px){#minseo-plan .photography-row{flex-direction:column}#minseo-plan .photography-row img{flex:none;width:100%}}
 #minseo-plan .research-rub-zone{position:absolute;left:55.6%;width:32.4%;top:9px;height:13.3dvh;min-height:80px;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;z-index:2;user-select:none;cursor:crosshair;color:#ff4949;font:inherit}#minseo-plan .research-rub-zone span{pointer-events:none}
@@ -28,7 +28,7 @@
 <link rel="stylesheet" href="https://use.typekit.net/zer7waj.css">
 </head>
 <body>
-<div id="minseo-plan" aria-label="Portfolio layout preview">
+<div id="minseo-plan" aria-label="Portfolio">
 
 <style>
 #minseo-plan .project-facts .description{text-transform:none}
@@ -95,6 +95,8 @@
 </style>
 <header class="portfolio-header"><button class="name" data-page="Home">Minseo Kim</button><nav aria-label="Portfolio navigation"><button data-page="Spatial Design">Spatial</button><span aria-hidden="true">, </span><button data-page="Photography">Photography</button><span aria-hidden="true">, </span><button data-page="Research">Research</button></nav><button class="about-link" data-page="About">About</button></header>
 <main aria-live="polite"></main>
+<link rel="stylesheet" href="constellation.css?v=883ac4d8cf">
+<script src="constellation.js?v=27d8f096bc"></script>
 <script>
 (()=>{
 const root=document.getElementById('minseo-plan'),main=root.querySelector('main');
@@ -166,10 +168,11 @@ const detail=page==='project'||page==='series';
 const category=page==='series'?'Photography':'Spatial Design';
 const header=root.querySelector('header');
 header.className='portfolio-header';
+root.classList.toggle('constellation-home',page==='Home');
 header.innerHTML=`<button class="name" data-page="Home">Minseo Kim</button><nav aria-label="Portfolio navigation"><button data-page="Spatial Design">Spatial</button><span aria-hidden="true">, </span><button data-page="Photography">Photography</button><span aria-hidden="true">, </span><button data-page="Research">Research</button></nav><button class="about-link" data-page="About">About</button>`;
 root.querySelectorAll('nav button').forEach(b=>{if(b.dataset.page===page)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current')});
 let html='';
-if(page==='Home')html=`<section class="home-page" aria-label="Home — explore the buildings"><svg class="home-map" viewBox="0 0 1920 1280" preserveAspectRatio="xMidYMid slice" role="group" aria-label="Portfolio building directory"><image href="assets/home-axonometric-01.png" width="1920" height="1280"/><a href="#" role="link" tabindex="0" class="home-building" data-home-target="Spatial Design" aria-label="Spatial — red buildings" style="--building-color:#f34c48;--building-tint:#f34c4820"><title>Spatial</title><polygon points="535,739 567,651 762,699 766,747 886,778 888,923 831,980 596,917"/><polygon points="930,530 996,417 1102,487 1077,610 1000,645 931,620"/></a><a href="#" role="link" tabindex="0" class="home-building" data-home-target="Photography" aria-label="Photography — yellow building" style="--building-color:#e4bc38;--building-tint:#e4bc3828"><title>Photography</title><polygon points="596,530 757,367 817,407 827,490 723,653 599,622"/></a><a href="#" role="link" tabindex="0" class="home-building" data-home-target="Research" aria-label="Research — green buildings" style="--building-color:#56a76a;--building-tint:#56a76a25"><title>Research</title><polygon points="738,342 782,323 784,284 818,227 865,236 894,200 910,207 952,158 1033,185 1030,212 1084,228 1049,315 943,288 952,389 824,450 809,402"/></a><a href="#" role="link" tabindex="0" class="home-building" data-home-target="About" aria-label="About — blue buildings" style="--building-color:#5a6eb5;--building-tint:#5a6eb525"><title>About</title><polygon points="1164,647 1214,625 1260,646 1267,681 1258,736 1161,736"/><polygon points="1074,684 1090,676 1138,694 1134,747 1109,785 1148,835 1054,840 1045,794 1049,738"/><polygon points="1298,697 1338,675 1373,682 1397,734 1386,787 1417,797 1386,909 1328,884 1326,808 1292,748"/><polygon points="1185,859 1251,837 1296,866 1289,902 1199,907 1163,883"/></a></svg><div class="home-preview" aria-label="Section preview"><div class="home-preview-content"></div></div></section>`;
+if(page==='Home')html=window.createConstellation()+"<template id=\"constellation-about\"><section class=\"about-page\" aria-label=\"About Minseo Kim\"><h1 class=\"about-heading\">About</h1><ul class=\"about-experience\" aria-label=\"Experience\"><li>Bureau Betak. Design Assistant. 2026 - Present</li><li>Komune Space. Event Design Production Lead. 2026</li><li>Issey Miyake. Creative VMD Coordinator. 2025 - 2026</li><li>Telfar. Design Development Intern. 2025</li><li>Bad Binch Tong Tong. Design Assistant. 2024</li><li>Willy Chavarria. Design Assistant. 2023</li></ul><p class=\"about-statement\">I am building community throughout my life in various approach.</p></section></template>";
 
 if(page==='About')html='<section class="about-page" aria-label="About Minseo Kim"><h1 class="about-heading">About</h1><ul class="about-experience" aria-label="Experience"><li>Bureau Betak. Design Assistant. 2026 - Present</li><li>Komune Space. Event Design Production Lead. 2026</li><li>Issey Miyake. Creative VMD Coordinator. 2025 - 2026</li><li>Telfar. Design Development Intern. 2025</li><li>Bad Binch Tong Tong. Design Assistant. 2024</li><li>Willy Chavarria. Design Assistant. 2023</li></ul><p class="about-statement">I am building community throughout my life in various approach.</p></section>';
 if(page==='Spatial Design'){
@@ -190,6 +193,7 @@ const media=(label,number)=>`<div class="placeholder">${label}<span>${String(num
 html=`<section class="project-intro"><h1>${noun} title 0${item}</h1><div class="project-facts"><div><p><span class="fact-label">Type</span><br>${page==='project'?'[Project type]':category}</p><p><span class="fact-label">Location/Year</span><br>[Place] / YYYY</p></div><div><p><span class="fact-label">Client</span><br>[Client]</p><p><span class="fact-label">Team</span><br>[Collaborators]</p></div><div class="description">${page==='series'?'<p>About the series</p>':''}<p>[${page==='project'?'A concise description of the project, its setting, and the idea behind the space. Your role and approach appear here, alongside the project facts.':'A short introduction to the photographic series, its setting, and what you were observing.'}]</p></div></div></section><div class="media-flow">${media(page==='project'?'Opening project image':'Opening photograph',1)}<div class="split">${media('Portrait image',2)}${media('Detail image',3)}</div>${media(page==='project'?'Spatial view / drawing':'Photograph',4)}<div class="split">${media('Material / detail',5)}${media('Process / observation',6)}</div></div><div class="end-nav"><button data-page="${category}">Back to index</button><button data-next="${page}">Next ${noun.toLowerCase()} →</button></div>`;
 }
 main.innerHTML=html;
+window.initConstellation();
 if(page==='project'&&item===1){
 const photo=(i)=>`<img src="${komuneAssets[i].src}" alt="${komuneAssets[i].alt}" width="${komuneAssets[i].width}" height="${komuneAssets[i].height}" style="flex-grow:${komuneAssets[i].width/komuneAssets[i].height}" decoding="async" loading="${i===3?'eager':'lazy'}" fetchpriority="${i===3?'high':'auto'}">`;
 main.innerHTML=`<section class="project-intro"><h1>Jiyong Kim Pop-Up @Komune</h1><div class="project-facts"><div><p><span class="fact-label">Type</span><br>Experiential</p><p><span class="fact-label">Location/Year</span><br>New York, 2026</p></div><div><p><span class="fact-label">Client</span><br>Jiyong Kim</p><p><span class="fact-label">Team</span><br>Komune Space</p></div><div class="description"><p>Led the visual direction, event design and production for the first North American pop-up of Seoul-based label JiyongKim. The challenge was to translate the brand’s signature sun-bleaching process—a method centered on time, nature, and organic evolution into a tangible retail environment within the Komune space.</p></div></div></section><div class="media-flow komune-media">${photo(3)}<div class="portrait-final">${photo(7)}</div>${photo(1)}<div class="split">${photo(2)}${photo(0)}</div><div class="split">${photo(4)}${photo(5)}</div></div><div class="end-nav"><button data-page="Spatial Design">Back to index</button><button data-next="project">Next project →</button></div>`;
